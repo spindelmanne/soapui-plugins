@@ -1,10 +1,10 @@
-package com.smartbear.soapui.plugins.search
+package com.smartbear.soapui.plugins.search;
 
-import com.eviware.soapui.actions.Prefs
-import com.eviware.soapui.model.settings.Settings
-import com.eviware.soapui.plugins.auto.PluginPrefs
-import com.eviware.soapui.support.components.SimpleForm
-import com.eviware.soapui.support.types.StringToStringMap
+import com.eviware.soapui.actions.Prefs;
+import com.eviware.soapui.model.settings.Settings;
+import com.eviware.soapui.plugins.auto.PluginPrefs;
+import com.eviware.soapui.support.components.SimpleForm;
+import com.eviware.soapui.support.types.StringToStringMap;
 
 /*
  * Copyright 2004-2014 SmartBear Software
@@ -23,7 +23,7 @@ import com.eviware.soapui.support.types.StringToStringMap
  *
 */
 @PluginPrefs
-class SearchPluginPrefs implements Prefs {
+public class SearchPluginPrefs implements Prefs {
 
     public static final String NUMBER_OF_HITS_SETTING = SearchPluginPrefs.class.getName() + "@number_of_hits";
 
@@ -31,32 +31,32 @@ class SearchPluginPrefs implements Prefs {
     private SimpleForm form = new SimpleForm();
 
     @Override
-    SimpleForm getForm() {
+    public SimpleForm getForm() {
         form.appendTextField(NUMBER_OF_HITS, NUMBER_OF_HITS);
         return form;
     }
 
     @Override
-    void setFormValues(Settings settings) {
+    public void setFormValues(Settings settings) {
         form.setComponentValue(NUMBER_OF_HITS, settings.getString(NUMBER_OF_HITS_SETTING, ""));
     }
 
     @Override
-    void getFormValues(Settings settings) {
+    public void getFormValues(Settings settings) {
         settings.setString(NUMBER_OF_HITS_SETTING, form.getComponentValue(NUMBER_OF_HITS));
     }
 
     @Override
-    void storeValues(StringToStringMap stringToStringMap, Settings settings) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void storeValues(StringToStringMap stringToStringMap, Settings settings) {
+
     }
 
-    @Override
+    public @Override
     StringToStringMap getValues(Settings settings) {
-        return null  //To change body of implemented methods use File | Settings | File Templates.
+        return null;
     }
 
-    @Override
+    public @Override
     String getTitle() {
         return "Search Plugin";
     }

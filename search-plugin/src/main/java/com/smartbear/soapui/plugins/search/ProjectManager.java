@@ -1,8 +1,8 @@
-package com.smartbear.soapui.plugins.search
+package com.smartbear.soapui.plugins.search;
 
-import com.eviware.soapui.model.project.Project
-import com.eviware.soapui.model.support.WorkspaceListenerAdapter
-import com.eviware.soapui.plugins.ListenerConfiguration
+import com.eviware.soapui.model.project.Project;
+import com.eviware.soapui.model.support.WorkspaceListenerAdapter;
+import com.eviware.soapui.plugins.ListenerConfiguration;
 
 /*
  * Copyright 2004-2014 SmartBear Software
@@ -20,27 +20,27 @@ import com.eviware.soapui.plugins.ListenerConfiguration
  * under the Licence.
 */
 @ListenerConfiguration
-class ProjectManager extends WorkspaceListenerAdapter {
+public class ProjectManager extends WorkspaceListenerAdapter {
 
-    private SoapUISearcher searcher = SearchPlugin.searcherInstance
+    private SoapUISearcher searcher = SearchPlugin.searcherInstance;
 
     @Override
-    void projectOpened(Project project) {
-        searcher.addModelItem(project)
+    public void projectOpened(Project project) {
+        searcher.addModelItem(project);
     }
 
     @Override
-    void projectAdded(Project project) {
-        searcher.addModelItem(project)
+    public void projectAdded(Project project) {
+        searcher.addModelItem(project);
     }
 
     @Override
-    void projectClosed(Project project) {
-        searcher.removeModelItem(project)
+    public void projectClosed(Project project) {
+        searcher.removeModelItem(project);
     }
 
     @Override
-    void projectRemoved(Project project) {
-        searcher.removeModelItem(project)
+    public void projectRemoved(Project project) {
+        searcher.removeModelItem(project);
     }
 }

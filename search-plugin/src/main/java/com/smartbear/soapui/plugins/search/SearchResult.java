@@ -1,4 +1,8 @@
-package com.smartbear.soapui.plugins.search
+package com.smartbear.soapui.plugins.search;
+
+import com.eviware.soapui.model.ModelItem;
+
+import java.util.List;
 
 /*
  * Copyright 2004-2014 SmartBear Software
@@ -14,8 +18,22 @@ package com.smartbear.soapui.plugins.search
  * distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the Licence for the specific language governing permissions and limitations
  * under the Licence.
-*/class IndexingException extends RuntimeException {
-    IndexingException(String message, IOException e) {
-        super(message, e);
+*/
+class SearchResult {
+
+    private final int numberOfHits;
+    private final List<ModelItem> topHits;
+
+    SearchResult(int numberOfHits, List<ModelItem> topHits) {
+        this.numberOfHits = numberOfHits;
+        this.topHits = topHits;
+    }
+
+    int getNumberOfHits() {
+        return numberOfHits;
+    }
+
+    List<ModelItem> getTopHits() {
+        return topHits;
     }
 }

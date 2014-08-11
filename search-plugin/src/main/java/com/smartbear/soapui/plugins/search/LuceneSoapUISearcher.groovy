@@ -1,6 +1,6 @@
 package com.smartbear.soapui.plugins.search
 
-import com.eviware.soapui.SoapUIPro
+import com.eviware.soapui.SoapUI
 import com.eviware.soapui.config.ModelItemConfig
 import com.eviware.soapui.impl.wsdl.AbstractWsdlModelItem
 import com.eviware.soapui.impl.wsdl.WsdlInterface
@@ -135,7 +135,7 @@ class LuceneSoapUISearcher implements SoapUISearcher {
 
     int maxHits() {
         try {
-            Integer.parseInt(SoapUIPro.soapUIProCore.settings.getString(SearchPluginPrefs.NUMBER_OF_HITS_SETTING, "10"));
+            Integer.parseInt(SoapUI.soapUICore.settings.getString(SearchPluginPrefs.NUMBER_OF_HITS_SETTING, "10"));
         } catch (NumberFormatException ignored) {
             10
         }

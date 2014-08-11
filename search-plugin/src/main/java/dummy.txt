@@ -1,1 +1,0 @@
-This needs to be here for the Maven build to work. See http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven

@@ -1,7 +1,8 @@
-package com.smartbear.soapui.plugins.search
+package com.smartbear.soapui.plugins.search;
 
-import com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase
-import com.eviware.soapui.model.ModelItem
+import com.eviware.soapui.impl.WorkspaceImpl;
+import com.eviware.soapui.plugins.ActionConfiguration;
+import com.eviware.soapui.support.action.support.AbstractSoapUIAction;
 
 /*
  * Copyright 2004-2014 SmartBear Software
@@ -17,14 +18,16 @@ import com.eviware.soapui.model.ModelItem
  * distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the Licence for the specific language governing permissions and limitations
  * under the Licence.
-*/public interface SoapUISearcher {
+*/
+@ActionConfiguration(actionGroup = "WorkspaceImplActions", description = "Search projects ...", keyStroke = "menu F")
+public class SearchAction extends AbstractSoapUIAction<WorkspaceImpl>{
 
-    void addModelItem(ModelItem modelItem)
+    public SearchAction() {
+        super("Search Projects", "Free text search in all projects");
+    }
 
-    void removeModelItem(ModelItem modelItem)
-
-    SearchResult search(String s)
-
-    int maxHits()
-
+    @Override
+    public void perform(WorkspaceImpl t, Object o) {
+        new SearchDialog(SearchPlugin.searcherInstance).display();
+    }
 }

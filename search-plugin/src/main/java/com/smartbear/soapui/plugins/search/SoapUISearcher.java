@@ -1,6 +1,6 @@
-package com.smartbear.soapui.plugins.search
+package com.smartbear.soapui.plugins.search;
 
-import com.eviware.soapui.model.ModelItem
+import com.eviware.soapui.model.ModelItem;
 
 /*
  * Copyright 2004-2014 SmartBear Software
@@ -17,14 +17,14 @@ import com.eviware.soapui.model.ModelItem
  * express or implied. See the Licence for the specific language governing permissions and limitations
  * under the Licence.
 */
-class SearchResult {
+public interface SoapUISearcher {
 
-    final int numberOfHits
-    final List<ModelItem> topHits
+    void addModelItem(ModelItem modelItem);
 
-    SearchResult(int numberOfHits, List<ModelItem> topHits) {
-        this.numberOfHits = numberOfHits
-        this.topHits = topHits
-    }
+    void removeModelItem(ModelItem modelItem);
+
+    SearchResult search(String s);
+
+    int maxHits();
 
 }
